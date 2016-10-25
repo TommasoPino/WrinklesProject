@@ -1,0 +1,10 @@
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\bin\Release\Calibration_v0.2.exe.config
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\bin\Release\Calibration_v0.2.exe
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\bin\Release\Calibration_v0.2.pdb
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\obj\Release\Calibration_v0._2.Form1.resources
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\obj\Release\Calibration_v0._2.Properties.Resources.resources
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\obj\Release\Calibration_v0.2.csproj.GenerateResource.Cache
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\obj\Release\Calibration_v0.2.exe
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\obj\Release\Calibration_v0.2.pdb
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\obj\Release\Calibration_v0.2.csprojResolveAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\Calibration_v0.2\bin\Release\Phidget21.NET1.1.dll
