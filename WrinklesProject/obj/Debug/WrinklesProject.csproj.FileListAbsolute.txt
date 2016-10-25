@@ -1,0 +1,3 @@
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\WrinklesProject\bin\Debug\Calibration_v0.2.exe.config
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\WrinklesProject\obj\Debug\Calibration_v0.2.exe
+C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\WrinklesProject\obj\Debug\Calibration_v0.2.pdb
