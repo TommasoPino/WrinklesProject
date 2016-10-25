@@ -1,3 +1,12 @@
 C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\WrinklesProject\bin\Debug\Calibration_v0.2.exe.config
 C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\WrinklesProject\obj\Debug\Calibration_v0.2.exe
 C:\Users\ADMIN\OneDrive\Programmazione\Visual Studio 2015\Projects\WrinklesProject\Calibration_v0.2\WrinklesProject\obj\Debug\Calibration_v0.2.pdb
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\bin\Debug\Calibration_v0.2.exe.config
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\obj\Debug\Calibration_v0.2.exe
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\obj\Debug\Calibration_v0.2.pdb
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\bin\Debug\Calibration_v0.2.exe
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\bin\Debug\Calibration_v0.2.pdb
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\obj\Debug\WrinklesProject.csprojResolveAssemblyReference.cache
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\obj\Debug\Calibration_v0._2.Form1.resources
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\obj\Debug\Calibration_v0._2.Properties.Resources.resources
+C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\obj\Debug\WrinklesProject.csproj.GenerateResource.Cache

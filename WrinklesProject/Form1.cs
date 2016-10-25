@@ -24,7 +24,7 @@ namespace Calibration_v0._2
         }
         #endregion
 
-        #region BottonClick Methods
+        #region ButtonClick Methods
         /// <summary>
         /// This method respond to the Calibration button in the 
         /// Calibration Tab. If the Serial port is not initialized
