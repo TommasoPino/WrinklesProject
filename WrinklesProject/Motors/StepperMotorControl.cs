@@ -18,9 +18,9 @@ namespace StepperMotorControl
         double maxAccelerationBreaking;
 
         // serial number of phidget boards
-        const int SerialNumberX = 000111;   // MUST TO CHECK THE CORRECT NUMBER
-        const int SerialNumberY1 = 001110;  // MUST TO CHECK THE CORRECT NUMBER
-        const int SerialNumberY2 = 011100;  // MUST TO CHECK THE CORRECT NUMBER
+        const int SerialNumberX  = 401567;  // CHECKED
+        const int SerialNumberY1 = 421034;  // CHECKED
+        const int SerialNumberY2 = 423642;  // CHECKED
 
         // NumOfMotor and their label
         const int NumberOfMotors = 3;
@@ -67,12 +67,16 @@ namespace StepperMotorControl
                 if (stepper.Label == label)
                 {
                     // Set the velocity to 
-                    stepper.steppers[0].Acceleration = stepper.steppers[0].AccelerationMax;
-                    stepper.steppers[0].VelocityLimit = stepper.steppers[0].VelocityMax;
+                    stepper.steppers[0].Acceleration   = stepper.steppers[0].AccelerationMax;
+                    stepper.steppers[0].VelocityLimit  = stepper.steppers[0].VelocityMax;
                     stepper.steppers[0].TargetPosition = stepper.steppers[0].TargetPosition;
                 }
             }
         }
+        #endregion
+
+        #region Public Methods
+        
         #endregion
 
         #region Private Methods
