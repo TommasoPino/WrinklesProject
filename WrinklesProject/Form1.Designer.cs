@@ -1,4 +1,4 @@
-﻿namespace Calibration_v0._2
+﻿namespace Calibration_v0_2
 {
     partial class Form1
     {

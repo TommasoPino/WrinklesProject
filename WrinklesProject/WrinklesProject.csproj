@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Motors\StepperMotorControl.cs" />
+    <Compile Include="Motors\StepperControl.cs" />
     <Compile Include="Sensors\LimitSwitchSensorControl.cs" />
     <Compile Include="Sensors\SensorControl.cs" />
     <Compile Include="Sensors\LaserSensor.cs" />

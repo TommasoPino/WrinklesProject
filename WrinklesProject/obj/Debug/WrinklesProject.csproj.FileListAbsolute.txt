@@ -13,3 +13,10 @@ C:\Users\tommasopino\Source\Repos\WrinklesProject\WrinklesProject\obj\Debug\Wrin
 C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\bin\Debug\Calibration_v0.2.exe.config
 C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\obj\Debug\Calibration_v0.2.exe
 C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\obj\Debug\Calibration_v0.2.pdb
+C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\bin\Debug\Calibration_v0.2.exe
+C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\bin\Debug\Calibration_v0.2.pdb
+C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\bin\Debug\Phidget21.NET1.1.dll
+C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\obj\Debug\WrinklesProject.csprojResolveAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\obj\Debug\Calibration_v0._2.Properties.Resources.resources
+C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\obj\Debug\WrinklesProject.csproj.GenerateResource.Cache
+C:\Users\ADMIN\OneDrive\Programmazione\GitHubReposity\WrinklesProject\WrinklesProject\obj\Debug\Calibration_v0_2.Form1.resources

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Threading;
 // remeber to add the System.Managment.dll
 using System.Management;
 using System.Windows.Forms;
 using SensorControl;
+using StepperControl;
 
-namespace Calibration_v0._2
+namespace Calibration_v0_2
 {
     public partial class Form1 : Form
     {
@@ -12,6 +14,7 @@ namespace Calibration_v0._2
         // we have a movimentation only on two axis (4 limits)
         const int numOfSensor = 4;
         LimitSwitchSensorControl limitSwitchSensorControl;
+        StepperMotorControl stepperMotorControl;
         #endregion
 
         #region Constructor
@@ -20,6 +23,11 @@ namespace Calibration_v0._2
             InitializeComponent();
             limitSwitchSensorControl = new LimitSwitchSensorControl(numOfSensor);
             limitSwitchSensorControl.Text += new SensorControl.SensorControl.TextEventHandler(AppendTextToRichTextStatusMessages);
+
+            stepperMotorControl = new StepperMotorControl();
+            stepperMotorControl.Text += new StepperMotorControl.TextEventHandler(AppendTextToRichTextStatusMessages);
+            stepperMotorControl.ResetButtonsCalibration += new StepperMotorControl.ResetButtonsCalibrationHandler(ResetButtonsCalibration);
+
             AutodetectArduino();
         }
         #endregion
@@ -50,10 +58,21 @@ namespace Calibration_v0._2
                 {
                     var confirmResult = MessageBox.Show("No COM Port is selected");
                 }
+
+                try
+                {
+                    stepperMotorControl.InizializationMotors();
+                    stepperMotorControl.StartCalibration();
+                }
+                catch
+                {
+                    ResetButtonsCalibration();
+                }
             }
             else
             {
                 limitSwitchSensorControl.StartControl();
+
                 buttonAbortCalibration.Visible = true;
             }
         }
@@ -67,8 +86,18 @@ namespace Calibration_v0._2
         /// <param name="e"></param>
         private void buttonAbortCalibration_Button_Click(object sender, EventArgs e)
         {
-            buttonAbortCalibration.Visible = false;
+            ResetButtonsCalibration();
+            stepperMotorControl.AbortCalibration();
             limitSwitchSensorControl.StopControl();
+        }
+
+        public void ResetButtonsCalibration()
+        {
+            buttonAbortCalibration.Invoke(new MethodInvoker(() =>
+            {
+                buttonAbortCalibration.Visible = false;
+            }
+            )); 
         }
 
         /// <summary>

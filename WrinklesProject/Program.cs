@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Calibration_v0._2
+namespace Calibration_v0_2
 {
     static class Program
     {

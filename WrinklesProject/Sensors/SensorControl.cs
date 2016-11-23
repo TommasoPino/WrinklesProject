@@ -74,7 +74,6 @@ namespace SensorControl
                 serialPort.PortName = portName;
                 serialPort.BaudRate = 9600;
                 serialPort.ReadTimeout = 10;
-                serialPortInitialized = true;
                 // try to connect to Arduino
                 Text?.Invoke(TryConnection);
                 try
@@ -85,17 +84,20 @@ namespace SensorControl
                         serialPort.Open();
                     }
                     TextInvoke(Connected);
+                    serialPortInitialized = true;
                     return true;
                 }
                 catch
                 {
                     TextInvoke(NotConnected);
+                    serialPortInitialized = false;
                     return false;
                 }
             }
             else
             {
                 TextInvoke(AlreadyConnected);
+                serialPortInitialized = true;
                 return true;
             }
         }

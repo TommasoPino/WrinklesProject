@@ -56,12 +56,15 @@ namespace SensorControl
         /// </summary>
         public void StopControl()
         {
-            interruptThread = true;
-            Thread.Sleep(10);
-            controlTread.Interrupt();
-            controlTread.Abort();
-            controlTread.Join();
-            controlTread = null;
+            if (controlTread != null)
+            {
+                interruptThread = true;
+                Thread.Sleep(10);
+                controlTread.Interrupt();
+                controlTread.Abort();
+                controlTread.Join();
+                controlTread = null;
+            }
         }
         
         /// <summary>
