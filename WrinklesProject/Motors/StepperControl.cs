@@ -11,11 +11,11 @@ namespace StepperControl
     {
         #region Fields
         // Constant Velocity and Acceleration
-        const double MaxVelocityCalibration = 0;
-        const double MaxAccelerationCalibration = 0;
+        const double MaxVelocityCalibration = 25000; // MAX 75000
+        const double MaxAccelerationCalibration = 524288; // MAX 524288
 
-        const double MaxVelocityScanner = 0;
-        const double MaxAccelerationScanner = 0;
+        const double MaxVelocityScanner = 10000;
+        const double MaxAccelerationScanner = 524288;
 
         double maxVelocityBreaking;
         double maxAccelerationBreaking;
@@ -41,7 +41,7 @@ namespace StepperControl
         const int NumberOfMotors = 3;
         string[] MotorNameLabel = { "XMotor", "YMotor1", "YMotor2" };
         // Other varaibles
-        const int AttachmentWaitingTime = 100;
+        const int AttachmentWaitingTime = 1000;
         List<Stepper> steppers = new List<Stepper>();
         const string AttachmentProblem = "Attachment problem";
         // Events that returns TEXT for the RichTextBox
@@ -50,6 +50,11 @@ namespace StepperControl
 
         public event ResetButtonsCalibrationHandler ResetButtonsCalibration;
         public delegate void ResetButtonsCalibrationHandler();
+
+        // Change Textbox Status
+        public event StepperHandler StepperConnected;
+        public event StepperHandler CalibrationStatus;
+        public delegate void StepperHandler(string obj, bool status, Stepper stepper);
 
         Exception e;
 
@@ -66,10 +71,22 @@ namespace StepperControl
         #region Partial Properties
         public bool CalibrationDone
         {
-            private set { calibrationDone = value; }
+            private set
+            {
+                calibrationDone = value;
+                try
+                {
+                    CalibrationStatus("Calibration", CalibrationDone, null);
+                }
+                catch { }
+            }
             get { return calibrationDone; }
         }
 
+        public bool CalibrationIsAlive
+        {
+            get { return calibrationThread.IsAlive; }
+        }
         public bool CalibrationAbort
         {
             private set { calibrationAbort = value; }
@@ -146,11 +163,11 @@ namespace StepperControl
         /// </summary>
         public StepperMotorControl()
         {
-            try
-            {
-                InizializationMotors();
-            }
-            catch { }
+            //try
+            //{
+            //    InizializationMotors();
+            //}
+            //catch { }
         }
         #endregion
 
@@ -168,7 +185,7 @@ namespace StepperControl
                     // Set the velocity to 
                     stepper.steppers[0].Acceleration   = stepper.steppers[0].AccelerationMax;
                     stepper.steppers[0].VelocityLimit  = stepper.steppers[0].VelocityMax;
-                    stepper.steppers[0].TargetPosition = stepper.steppers[0].TargetPosition;
+                    stepper.steppers[0].TargetPosition = stepper.steppers[0].CurrentPosition;
                 }
             }
         }
@@ -179,16 +196,33 @@ namespace StepperControl
         {
             foreach (Stepper stepper in steppers)
             {
-                StopMotor(stepper.Label);
-                Text?.Invoke(stepper.Label + " is stopped");
+                if (stepper.Attached)
+                {
+                    StopMotor(stepper.Label);
+                    Text?.Invoke(stepper.Label + " is stopped");
+                }
+                else
+                {
+                    Text?.Invoke(stepper.Label + " is not connected");
+                }
             }
         }
 
         public void StartCalibration()
         {
+            Text("\nStart Calibration\n");
             if (calibrationThread == null)
             {
                 calibrationThread = new Thread(Calibration);
+                calibrationThread.IsBackground = true;
+                calibrationThread.Start();
+            }
+            else if(calibrationThread.ThreadState == ThreadState.Stopped)
+            {
+                calibrationThread = null;
+                calibrationThread = new Thread(Calibration);
+                calibrationThread.IsBackground = true;
+                calibrationThread.Start();
             }
         }
 
@@ -206,6 +240,7 @@ namespace StepperControl
         public void AbortCalibration()
         {
             CalibrationAbort = true;
+            Text?.Invoke("\nCalibration Aborted\n");
             StopAllMotors();
         }
         /// <summary>
@@ -215,15 +250,24 @@ namespace StepperControl
         /// <returns></returns>
         public bool AllMotorStop(List<Stepper> steppers)
         {
-            bool result = true;
-            foreach (Stepper stepper in steppers)
+            try
             {
-                if (!stepper.steppers[0].Stopped)
+                bool result = true;
+                foreach (Stepper stepper in steppers)
                 {
-                    result = false;
+                    if (!stepper.steppers[0].Stopped)
+                    {
+                        result = false;
+                    }
                 }
+                return result;
             }
-            return result;
+            catch (Exception e)
+            {
+                Text?.Invoke(e.ToString());
+                return false;
+            }
+            
         }
 
         /// <summary>
@@ -235,20 +279,28 @@ namespace StepperControl
             {
                 try
                 {
-                    for (int i = 0; i < NumberOfMotors; i++)
+                    if (steppers.Count != 3)
                     {
-                        steppers[i] = new Stepper();
-                        steppers[i].waitForAttachment(AttachmentWaitingTime);
-                        Text?.Invoke(steppers[i].SerialNumber.ToString() + " Attached");
+                        for (int i = 0; i < NumberOfMotors; i++)
+                        {
+                            steppers.Add(new Stepper());
+                            steppers[i].open();
+                            steppers[i].waitForAttachment(AttachmentWaitingTime);
+                            steppers[i].Detach += new Phidgets.Events.DetachEventHandler(MotorDetached);
+                            //steppers[i].Attach += new Phidgets.Events.AttachEventHandler(MotorAttached);
+                            Text?.Invoke(steppers[i].SerialNumber.ToString() + " Attached");
+                        }
+                        MaxVelocityBreaking = steppers[0].steppers[0].VelocityMax;
+                        MaxAccelerationBreaking = steppers[0].steppers[0].AccelerationMax;
+                        CheckSerialNumbers(steppers);
+                        InizializationMotorsStatus = true;
+
                     }
-                    MaxVelocityBreaking = steppers[0].steppers[0].VelocityMax;
-                    MaxAccelerationBreaking = steppers[0].steppers[0].AccelerationMax;
-                    CheckSerialNumbers(steppers);
-                    InizializationMotorsStatus = true;
                 }
-                catch
+                catch (Exception e)
                 {
-                    Text?.Invoke("Check Motor Boards Connection");
+                    Text?.Invoke("\nERROR: Check Motor Boards Connection\n");
+                    Text?.Invoke(e.ToString());
                     InizializationMotorsStatus = false;
                     ResetButtonsCalibration();
                 }
@@ -257,6 +309,19 @@ namespace StepperControl
         #endregion
 
         #region Private Methods
+        private void MotorDetached(object stepper, Phidgets.Events.DetachEventArgs e)
+        {
+            StopAllMotors();
+            ResetButtonsCalibration();
+            Text?.Invoke("\nERROR: Check Motor Boards Connection\n");
+            Text?.Invoke("ERROR INFO:\n" + e.Device.Label + " Disconnected \n " + "Serial No: " + e.Device.SerialNumber.ToString());
+            InizializationMotorsStatus = false;
+        }
+
+        //private void MotorAttached(object stepper, Phidgets.Events.AttachEventArgs e)
+        //{
+        //    Text?.Invoke(e.Device.Label + " Attached");
+        //}
 
         private void Calibration()
         {
@@ -264,20 +329,19 @@ namespace StepperControl
             {
                 EngageMotor(stepper);
                 ResetPosition(stepper);
-            }
-
-            foreach (Stepper stepper in steppers)
-            {
                 SetParameterCalibration(stepper);
-            }
-
-            // go to minimus
-            foreach (Stepper stepper in steppers)
-            {
+                // go to minimus
                 stepper.steppers[0].TargetPosition = stepper.steppers[0].PositionMin;
             }
 
-            while (!AllMotorStop(steppers) || !calibrationAbort) { }
+            while (!AllMotorStop(steppers))
+            {
+                if (calibrationAbort)
+                {
+                    CalibrationDone = false;
+                    break;
+                }
+            }
 
             if (!calibrationAbort)
             {
@@ -289,7 +353,15 @@ namespace StepperControl
                     stepper.steppers[0].TargetPosition = stepper.steppers[0].PositionMax;
                 }
 
-                while (!AllMotorStop(steppers) || !calibrationAbort) { }
+                while (!AllMotorStop(steppers))
+                {
+                    if (calibrationAbort)
+                    {
+                        CalibrationDone = false;
+                        break;
+                    }
+                }
+
                 if (!calibrationAbort)
                 {
                     SetPositionLimit(steppers, "max");
@@ -300,6 +372,10 @@ namespace StepperControl
                         DisEngageMotor(stepper);
                     }
                     CalibrationDone = true;
+                }
+                else
+                {
+                    CalibrationDone = false;
                 }
             }
         }
@@ -324,6 +400,7 @@ namespace StepperControl
                         stepper.Label = MotorNameLabel[2];
                         break;
                 }
+                StepperConnected(stepper.Label, stepper.Attached, stepper);
             }
         }
 
@@ -371,8 +448,8 @@ namespace StepperControl
         /// <param name="stepper"></param>
         private void SetParameterCalibration(Stepper stepper)
         {
-            stepper.steppers[0].VelocityLimit = stepper.steppers[0].VelocityMax / 2;
-            stepper.steppers[0].Acceleration = stepper.steppers[0].AccelerationMax / 2;
+            stepper.steppers[0].VelocityLimit = MaxVelocityCalibration;
+            stepper.steppers[0].Acceleration = MaxAccelerationCalibration;
         }
 
         private void SetPositionLimit(List<Stepper> steppers, string limit)

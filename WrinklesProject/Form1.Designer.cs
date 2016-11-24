@@ -48,11 +48,29 @@
             this.textBoxArduinoInfoConnected = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPagePhidgetMotors = new System.Windows.Forms.TabPage();
-            this.tabPageBridge = new System.Windows.Forms.TabPage();
-            this.panelMotorX = new System.Windows.Forms.Panel();
             this.panelMotorsY = new System.Windows.Forms.Panel();
-            this.labelMotorX = new System.Windows.Forms.Label();
+            this.textBoxMotorY2NSteppers = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxMotorY2Attached = new System.Windows.Forms.TextBox();
+            this.textBoxMotorY2Version = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxMotorY2SerialNo = new System.Windows.Forms.TextBox();
+            this.textBoxMotorY2Name = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxMotorY1NSteppers = new System.Windows.Forms.TextBox();
             this.labelMotorsY = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxMotorY1Attached = new System.Windows.Forms.TextBox();
+            this.textBoxMotorY1Version = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxMotorY1SerialNo = new System.Windows.Forms.TextBox();
+            this.textBoxMotorY1Name = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panelMotorX = new System.Windows.Forms.Panel();
             this.textBoxMotorXNSteppers = new System.Windows.Forms.TextBox();
             this.labelMotorXNSteppers = new System.Windows.Forms.Label();
             this.textBoxMotorXVersion = new System.Windows.Forms.TextBox();
@@ -63,34 +81,16 @@
             this.labelMotorXName = new System.Windows.Forms.Label();
             this.textBoxMotorXAttached = new System.Windows.Forms.TextBox();
             this.labelMotorXAttached = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.labelMotorX = new System.Windows.Forms.Label();
+            this.tabPageBridge = new System.Windows.Forms.TabPage();
             this.tabControlMain.SuspendLayout();
             this.tabCalibration.SuspendLayout();
             this.tabInfo.SuspendLayout();
             this.tabControlInfo.SuspendLayout();
             this.tabPageArduino.SuspendLayout();
             this.tabPagePhidgetMotors.SuspendLayout();
-            this.panelMotorX.SuspendLayout();
             this.panelMotorsY.SuspendLayout();
+            this.panelMotorX.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -194,6 +194,7 @@
             this.textBoxSystemCalibrated.ReadOnly = true;
             this.textBoxSystemCalibrated.Size = new System.Drawing.Size(93, 20);
             this.textBoxSystemCalibrated.TabIndex = 1;
+            this.textBoxSystemCalibrated.Text = "False";
             // 
             // labelSystemCalibrated
             // 
@@ -285,6 +286,7 @@
             this.textBoxArduinoInfoConnected.ReadOnly = true;
             this.textBoxArduinoInfoConnected.Size = new System.Drawing.Size(100, 20);
             this.textBoxArduinoInfoConnected.TabIndex = 1;
+            this.textBoxArduinoInfoConnected.Text = "False";
             // 
             // label1
             // 
@@ -307,15 +309,214 @@
             this.tabPagePhidgetMotors.Text = "Phidget Motors";
             this.tabPagePhidgetMotors.UseVisualStyleBackColor = true;
             // 
-            // tabPageBridge
+            // panelMotorsY
             // 
-            this.tabPageBridge.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBridge.Name = "tabPageBridge";
-            this.tabPageBridge.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBridge.Size = new System.Drawing.Size(418, 284);
-            this.tabPageBridge.TabIndex = 2;
-            this.tabPageBridge.Text = "Bridge";
-            this.tabPageBridge.UseVisualStyleBackColor = true;
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY2NSteppers);
+            this.panelMotorsY.Controls.Add(this.label8);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY2Attached);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY2Version);
+            this.panelMotorsY.Controls.Add(this.label9);
+            this.panelMotorsY.Controls.Add(this.label10);
+            this.panelMotorsY.Controls.Add(this.label11);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY2SerialNo);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY2Name);
+            this.panelMotorsY.Controls.Add(this.label12);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY1NSteppers);
+            this.panelMotorsY.Controls.Add(this.labelMotorsY);
+            this.panelMotorsY.Controls.Add(this.label3);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY1Attached);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY1Version);
+            this.panelMotorsY.Controls.Add(this.label7);
+            this.panelMotorsY.Controls.Add(this.label4);
+            this.panelMotorsY.Controls.Add(this.label6);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY1SerialNo);
+            this.panelMotorsY.Controls.Add(this.textBoxMotorY1Name);
+            this.panelMotorsY.Controls.Add(this.label5);
+            this.panelMotorsY.Location = new System.Drawing.Point(212, 4);
+            this.panelMotorsY.Name = "panelMotorsY";
+            this.panelMotorsY.Size = new System.Drawing.Size(200, 271);
+            this.panelMotorsY.TabIndex = 1;
+            // 
+            // textBoxMotorY2NSteppers
+            // 
+            this.textBoxMotorY2NSteppers.Location = new System.Drawing.Point(66, 239);
+            this.textBoxMotorY2NSteppers.Name = "textBoxMotorY2NSteppers";
+            this.textBoxMotorY2NSteppers.ReadOnly = true;
+            this.textBoxMotorY2NSteppers.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY2NSteppers.TabIndex = 39;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 242);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "# Steppers";
+            // 
+            // textBoxMotorY2Attached
+            // 
+            this.textBoxMotorY2Attached.Location = new System.Drawing.Point(66, 147);
+            this.textBoxMotorY2Attached.Name = "textBoxMotorY2Attached";
+            this.textBoxMotorY2Attached.ReadOnly = true;
+            this.textBoxMotorY2Attached.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY2Attached.TabIndex = 31;
+            this.textBoxMotorY2Attached.Text = "False";
+            // 
+            // textBoxMotorY2Version
+            // 
+            this.textBoxMotorY2Version.Location = new System.Drawing.Point(66, 216);
+            this.textBoxMotorY2Version.Name = "textBoxMotorY2Version";
+            this.textBoxMotorY2Version.ReadOnly = true;
+            this.textBoxMotorY2Version.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY2Version.TabIndex = 37;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 150);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Attached:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 219);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "Version:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 173);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Name:";
+            // 
+            // textBoxMotorY2SerialNo
+            // 
+            this.textBoxMotorY2SerialNo.Location = new System.Drawing.Point(66, 193);
+            this.textBoxMotorY2SerialNo.Name = "textBoxMotorY2SerialNo";
+            this.textBoxMotorY2SerialNo.ReadOnly = true;
+            this.textBoxMotorY2SerialNo.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY2SerialNo.TabIndex = 35;
+            // 
+            // textBoxMotorY2Name
+            // 
+            this.textBoxMotorY2Name.Location = new System.Drawing.Point(66, 170);
+            this.textBoxMotorY2Name.Name = "textBoxMotorY2Name";
+            this.textBoxMotorY2Name.ReadOnly = true;
+            this.textBoxMotorY2Name.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY2Name.TabIndex = 33;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 196);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 13);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Serial No.:";
+            // 
+            // textBoxMotorY1NSteppers
+            // 
+            this.textBoxMotorY1NSteppers.Location = new System.Drawing.Point(66, 112);
+            this.textBoxMotorY1NSteppers.Name = "textBoxMotorY1NSteppers";
+            this.textBoxMotorY1NSteppers.ReadOnly = true;
+            this.textBoxMotorY1NSteppers.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY1NSteppers.TabIndex = 29;
+            // 
+            // labelMotorsY
+            // 
+            this.labelMotorsY.AutoSize = true;
+            this.labelMotorsY.Location = new System.Drawing.Point(3, 4);
+            this.labelMotorsY.Name = "labelMotorsY";
+            this.labelMotorsY.Size = new System.Drawing.Size(46, 13);
+            this.labelMotorsY.TabIndex = 1;
+            this.labelMotorsY.Text = "MotorsY";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 115);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "# Steppers";
+            // 
+            // textBoxMotorY1Attached
+            // 
+            this.textBoxMotorY1Attached.Location = new System.Drawing.Point(66, 20);
+            this.textBoxMotorY1Attached.Name = "textBoxMotorY1Attached";
+            this.textBoxMotorY1Attached.ReadOnly = true;
+            this.textBoxMotorY1Attached.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY1Attached.TabIndex = 21;
+            this.textBoxMotorY1Attached.Text = "False";
+            // 
+            // textBoxMotorY1Version
+            // 
+            this.textBoxMotorY1Version.Location = new System.Drawing.Point(66, 89);
+            this.textBoxMotorY1Version.Name = "textBoxMotorY1Version";
+            this.textBoxMotorY1Version.ReadOnly = true;
+            this.textBoxMotorY1Version.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY1Version.TabIndex = 27;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Attached:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Version:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Name:";
+            // 
+            // textBoxMotorY1SerialNo
+            // 
+            this.textBoxMotorY1SerialNo.Location = new System.Drawing.Point(66, 66);
+            this.textBoxMotorY1SerialNo.Name = "textBoxMotorY1SerialNo";
+            this.textBoxMotorY1SerialNo.ReadOnly = true;
+            this.textBoxMotorY1SerialNo.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY1SerialNo.TabIndex = 25;
+            // 
+            // textBoxMotorY1Name
+            // 
+            this.textBoxMotorY1Name.Location = new System.Drawing.Point(66, 43);
+            this.textBoxMotorY1Name.Name = "textBoxMotorY1Name";
+            this.textBoxMotorY1Name.ReadOnly = true;
+            this.textBoxMotorY1Name.Size = new System.Drawing.Size(131, 20);
+            this.textBoxMotorY1Name.TabIndex = 23;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Serial No.:";
             // 
             // panelMotorX
             // 
@@ -334,52 +535,6 @@
             this.panelMotorX.Name = "panelMotorX";
             this.panelMotorX.Size = new System.Drawing.Size(200, 144);
             this.panelMotorX.TabIndex = 0;
-            // 
-            // panelMotorsY
-            // 
-            this.panelMotorsY.Controls.Add(this.textBox6);
-            this.panelMotorsY.Controls.Add(this.label8);
-            this.panelMotorsY.Controls.Add(this.textBox7);
-            this.panelMotorsY.Controls.Add(this.textBox8);
-            this.panelMotorsY.Controls.Add(this.label9);
-            this.panelMotorsY.Controls.Add(this.label10);
-            this.panelMotorsY.Controls.Add(this.label11);
-            this.panelMotorsY.Controls.Add(this.textBox9);
-            this.panelMotorsY.Controls.Add(this.textBox10);
-            this.panelMotorsY.Controls.Add(this.label12);
-            this.panelMotorsY.Controls.Add(this.textBox1);
-            this.panelMotorsY.Controls.Add(this.labelMotorsY);
-            this.panelMotorsY.Controls.Add(this.label3);
-            this.panelMotorsY.Controls.Add(this.textBox5);
-            this.panelMotorsY.Controls.Add(this.textBox2);
-            this.panelMotorsY.Controls.Add(this.label7);
-            this.panelMotorsY.Controls.Add(this.label4);
-            this.panelMotorsY.Controls.Add(this.label6);
-            this.panelMotorsY.Controls.Add(this.textBox3);
-            this.panelMotorsY.Controls.Add(this.textBox4);
-            this.panelMotorsY.Controls.Add(this.label5);
-            this.panelMotorsY.Location = new System.Drawing.Point(212, 4);
-            this.panelMotorsY.Name = "panelMotorsY";
-            this.panelMotorsY.Size = new System.Drawing.Size(200, 271);
-            this.panelMotorsY.TabIndex = 1;
-            // 
-            // labelMotorX
-            // 
-            this.labelMotorX.AutoSize = true;
-            this.labelMotorX.Location = new System.Drawing.Point(4, 4);
-            this.labelMotorX.Name = "labelMotorX";
-            this.labelMotorX.Size = new System.Drawing.Size(41, 13);
-            this.labelMotorX.TabIndex = 0;
-            this.labelMotorX.Text = "MotorX";
-            // 
-            // labelMotorsY
-            // 
-            this.labelMotorsY.AutoSize = true;
-            this.labelMotorsY.Location = new System.Drawing.Point(3, 4);
-            this.labelMotorsY.Name = "labelMotorsY";
-            this.labelMotorsY.Size = new System.Drawing.Size(46, 13);
-            this.labelMotorsY.TabIndex = 1;
-            this.labelMotorsY.Text = "MotorsY";
             // 
             // textBoxMotorXNSteppers
             // 
@@ -456,6 +611,7 @@
             this.textBoxMotorXAttached.ReadOnly = true;
             this.textBoxMotorXAttached.Size = new System.Drawing.Size(131, 20);
             this.textBoxMotorXAttached.TabIndex = 11;
+            this.textBoxMotorXAttached.Text = "False";
             // 
             // labelMotorXAttached
             // 
@@ -466,175 +622,24 @@
             this.labelMotorXAttached.TabIndex = 10;
             this.labelMotorXAttached.Text = "Attached:";
             // 
-            // textBox1
+            // labelMotorX
             // 
-            this.textBox1.Location = new System.Drawing.Point(66, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(131, 20);
-            this.textBox1.TabIndex = 29;
+            this.labelMotorX.AutoSize = true;
+            this.labelMotorX.Location = new System.Drawing.Point(4, 4);
+            this.labelMotorX.Name = "labelMotorX";
+            this.labelMotorX.Size = new System.Drawing.Size(41, 13);
+            this.labelMotorX.TabIndex = 0;
+            this.labelMotorX.Text = "MotorX";
             // 
-            // label3
+            // tabPageBridge
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "# Steppers";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(66, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(131, 20);
-            this.textBox2.TabIndex = 27;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 92);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Version:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(66, 66);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(131, 20);
-            this.textBox3.TabIndex = 25;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Serial No.:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(66, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(131, 20);
-            this.textBox4.TabIndex = 23;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Name:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(66, 20);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(131, 20);
-            this.textBox5.TabIndex = 21;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 23);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Attached:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(66, 239);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(131, 20);
-            this.textBox6.TabIndex = 39;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 242);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
-            this.label8.TabIndex = 38;
-            this.label8.Text = "# Steppers";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(66, 147);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(131, 20);
-            this.textBox7.TabIndex = 31;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(66, 216);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(131, 20);
-            this.textBox8.TabIndex = 37;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 150);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 13);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Attached:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 219);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 13);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "Version:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 173);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Name:";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(66, 193);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(131, 20);
-            this.textBox9.TabIndex = 35;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(66, 170);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(131, 20);
-            this.textBox10.TabIndex = 33;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 196);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 13);
-            this.label12.TabIndex = 34;
-            this.label12.Text = "Serial No.:";
+            this.tabPageBridge.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBridge.Name = "tabPageBridge";
+            this.tabPageBridge.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBridge.Size = new System.Drawing.Size(418, 284);
+            this.tabPageBridge.TabIndex = 2;
+            this.tabPageBridge.Text = "Bridge";
+            this.tabPageBridge.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -644,6 +649,7 @@
             this.Controls.Add(this.tabControlMain);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.tabControlMain.ResumeLayout(false);
             this.tabCalibration.ResumeLayout(false);
             this.tabCalibration.PerformLayout();
@@ -652,10 +658,10 @@
             this.tabPageArduino.ResumeLayout(false);
             this.tabPageArduino.PerformLayout();
             this.tabPagePhidgetMotors.ResumeLayout(false);
-            this.panelMotorX.ResumeLayout(false);
-            this.panelMotorX.PerformLayout();
             this.panelMotorsY.ResumeLayout(false);
             this.panelMotorsY.PerformLayout();
+            this.panelMotorX.ResumeLayout(false);
+            this.panelMotorX.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -685,26 +691,26 @@
         private System.Windows.Forms.Button buttonArduinoInfoConnect;
         private System.Windows.Forms.Panel panelMotorX;
         private System.Windows.Forms.Panel panelMotorsY;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxMotorY2NSteppers;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBoxMotorY2Attached;
+        private System.Windows.Forms.TextBox textBoxMotorY2Version;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBoxMotorY2SerialNo;
+        private System.Windows.Forms.TextBox textBoxMotorY2Name;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxMotorY1NSteppers;
         private System.Windows.Forms.Label labelMotorsY;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxMotorY1Attached;
+        private System.Windows.Forms.TextBox textBoxMotorY1Version;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxMotorY1SerialNo;
+        private System.Windows.Forms.TextBox textBoxMotorY1Name;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxMotorXNSteppers;
         private System.Windows.Forms.Label labelMotorXNSteppers;

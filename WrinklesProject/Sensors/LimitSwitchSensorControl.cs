@@ -75,6 +75,7 @@ namespace SensorControl
             if (controlTread == null)
             {
                 controlTread = new Thread(ThreadControl); // Add name of main control thread
+                controlTread.IsBackground = true;
                 controlTread.Name = "LimitSwitchSensorControl";
                 controlTread.Start();
             }

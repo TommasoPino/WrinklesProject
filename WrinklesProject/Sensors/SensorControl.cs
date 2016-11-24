@@ -17,6 +17,11 @@ namespace SensorControl
         public event TextEventHandler Text;
         public delegate void TextEventHandler(string text);
 
+
+        // Change Textbox Status
+        public event ArduinoConnectedHandler ArduinoConnected;
+        public delegate void ArduinoConnectedHandler(string obj, bool status);
+
         // Arduino attaching variables
         protected const string TryConnection = "Connecting to Artuino ...";
         protected const string Connected = "Arduino is connected";
@@ -24,6 +29,7 @@ namespace SensorControl
         protected const string AlreadyConnected = "Arduino is already connected";
         // Serial port Arduino Communication variables
         protected SerialPort serialPort;
+        protected const string serialPortObj = "Arduino";
         protected bool serialPortInitialized = false;
         // Thread variable
         protected Thread controlTread;
@@ -83,21 +89,24 @@ namespace SensorControl
                     {
                         serialPort.Open();
                     }
-                    TextInvoke(Connected);
+                    Text?.Invoke(Connected);
                     serialPortInitialized = true;
+                    ArduinoConnected?.Invoke(serialPortObj, serialPort.IsOpen);
                     return true;
                 }
                 catch
                 {
-                    TextInvoke(NotConnected);
+                    Text?.Invoke(NotConnected);
                     serialPortInitialized = false;
+                    ArduinoConnected?.Invoke(serialPortObj, serialPort.IsOpen);
                     return false;
                 }
             }
             else
             {
-                TextInvoke(AlreadyConnected);
+                Text?.Invoke(AlreadyConnected);
                 serialPortInitialized = true;
+                ArduinoConnected?.Invoke(serialPortObj, serialPort.IsOpen);
                 return true;
             }
         }

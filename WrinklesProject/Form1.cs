@@ -5,6 +5,7 @@ using System.Management;
 using System.Windows.Forms;
 using SensorControl;
 using StepperControl;
+using Phidgets;
 
 namespace Calibration_v0_2
 {
@@ -23,10 +24,13 @@ namespace Calibration_v0_2
             InitializeComponent();
             limitSwitchSensorControl = new LimitSwitchSensorControl(numOfSensor);
             limitSwitchSensorControl.Text += new SensorControl.SensorControl.TextEventHandler(AppendTextToRichTextStatusMessages);
+            limitSwitchSensorControl.ArduinoConnected += new SensorControl.SensorControl.ArduinoConnectedHandler(ChangeTextBoxStatus);
 
             stepperMotorControl = new StepperMotorControl();
             stepperMotorControl.Text += new StepperMotorControl.TextEventHandler(AppendTextToRichTextStatusMessages);
             stepperMotorControl.ResetButtonsCalibration += new StepperMotorControl.ResetButtonsCalibrationHandler(ResetButtonsCalibration);
+            stepperMotorControl.StepperConnected += new StepperMotorControl.StepperHandler(ChangeTextBoxStatus);
+            stepperMotorControl.CalibrationStatus += new StepperMotorControl.StepperHandler(ChangeTextBoxStatus);
 
             AutodetectArduino();
         }
@@ -46,34 +50,33 @@ namespace Calibration_v0_2
         /// <param name="e"></param>
         private void buttonCalibration_Click(object sender, EventArgs e)
         {
+
             if (!limitSwitchSensorControl.SerialPortInitialized)
             {
                 try
                 {
                     limitSwitchSensorControl.ArduinoConnection(comboBoxCOMPort.Items[comboBoxCOMPort.SelectedIndex].ToString());
                     limitSwitchSensorControl.StartControl();
-                    buttonAbortCalibration.Visible = true;
+                    stepperMotorControl.InizializationMotors();
+                    stepperMotorControl.StartCalibration();
+                    ResetButtonsCalibration();
+
                 }
                 catch
                 {
                     var confirmResult = MessageBox.Show("No COM Port is selected");
-                }
-
-                try
-                {
-                    stepperMotorControl.InizializationMotors();
-                    stepperMotorControl.StartCalibration();
-                }
-                catch
-                {
                     ResetButtonsCalibration();
                 }
             }
             else
             {
                 limitSwitchSensorControl.StartControl();
-
-                buttonAbortCalibration.Visible = true;
+                if (!stepperMotorControl.InizializationMotorsStatus)
+                {
+                    stepperMotorControl.InizializationMotors();
+                }
+                stepperMotorControl.StartCalibration();
+                ResetButtonsCalibration();
             }
         }
 
@@ -93,9 +96,10 @@ namespace Calibration_v0_2
 
         public void ResetButtonsCalibration()
         {
-            buttonAbortCalibration.Invoke(new MethodInvoker(() =>
+            Invoke(new MethodInvoker(() =>
             {
-                buttonAbortCalibration.Visible = false;
+                buttonAbortCalibration.Visible = !buttonAbortCalibration.Visible;
+                buttonCalibration.Enabled = !buttonCalibration.Enabled;
             }
             )); 
         }
@@ -157,6 +161,82 @@ namespace Calibration_v0_2
             }
             catch { }
             #endregion
+        }
+
+
+        /// <summary>
+        /// This method change the text box status 
+        /// </summary>
+        /// <param name="objname"></param>
+        /// <param name="status"></param>
+        private void ChangeTextBoxStatus(string objname, bool status)
+        {
+            this.ChangeTextBoxStatus(objname, status, null);
+        }
+        /// <summary>
+        /// This method change the text box status
+        /// </summary>
+        /// <param name="objname"></param>
+        /// <param name="status"></param>
+        /// <param name="stepper"></param>
+        private void ChangeTextBoxStatus(string objname, bool status, Stepper stepper)
+        {
+            switch(objname)
+            {
+                case "Arduino":
+                    Invoke(new MethodInvoker(() =>
+                    {
+                        textBoxArduinoInfoConnected.Text= status.ToString();
+                    }
+                    ));
+                    break;
+                case "Calibration":
+                    Invoke(new MethodInvoker(() =>
+                    {
+                        textBoxSystemCalibrated.Text = status.ToString();
+                    }
+                    ));
+                    break;
+                case "XMotor":
+                    Invoke(new MethodInvoker(() =>
+                    {
+                        textBoxMotorXAttached.Text = stepper.Attached.ToString();
+                        textBoxMotorXName.Text = stepper.Name.ToString();
+                        textBoxMotorXSerialNo.Text = stepper.SerialNumber.ToString();
+                        textBoxMotorXVersion.Text = stepper.Version.ToString();
+                    }
+                    ));
+                    break;
+                case "YMotor1":
+                    Invoke(new MethodInvoker(() =>
+                    {
+                        textBoxMotorY1Attached.Text = stepper.Attached.ToString();
+                        textBoxMotorY1Name.Text = stepper.Name.ToString();
+                        textBoxMotorY1SerialNo.Text = stepper.SerialNumber.ToString();
+                        textBoxMotorY1Version.Text = stepper.Version.ToString();
+                    }
+                    ));
+                    break;
+                case "YMotor2":
+                    Invoke(new MethodInvoker(() =>
+                    {
+                        textBoxMotorY2Attached.Text = stepper.Attached.ToString();
+                        textBoxMotorY2Name.Text = stepper.Name.ToString();
+                        textBoxMotorY2SerialNo.Text = stepper.SerialNumber.ToString();
+                        textBoxMotorY2Version.Text = stepper.Version.ToString();
+                    }
+                    ));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //stepperMotorControl.StopAllMotors();
+            stepperMotorControl.AbortCalibration();
+            limitSwitchSensorControl.StopControl();
         }
     }
 }
